@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.916);
+}
+p{
+    font-family: 'Bruno Ace', cursive;
+    font-weight: 400;
+    font-size: 70px;
+    height: 90px;
+    width: 60px;
+    text-shadow: 3px 1px 5px rgb(255, 255, 255);
+}
+input{
+    text-align: center;
+    border: solid 1px black;
+    width: 600px;
+    height: 35px;
+    border-radius: 10px;
+}
