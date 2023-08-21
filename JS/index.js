@@ -44,12 +44,35 @@ do {
 
 let a =prompt("El producto se agrego exitosamente al carrito. ¿Desea continuar con la compra? SI para continuar, NO para cerrar.").toLowerCase();
 
-if(a==si){
-let b=prompt("desea abonar en un pago o en cuotas? ingrese 1 para abonar en un pago. Ingrese 2 para abonar en cuotas.");
-    if (b==1){
+if (a === "si") {
+    let b = prompt("¿Desea abonar en un pago o en cuotas? Ingrese 1 para abonar en un pago. Ingrese 2 para abonar en cuotas.");
+    if (b === "1") {
+        alert("Eligio abonar en un pago. El total de la compra es $" + productos[opcionElegida - 1].precio);
+      } else if (b === "2") {
+        let cuotas = prompt("Ha elegido abonar en cuotas. ¿En cuántas cuotas quiere abonar? 3, 6, 12.");
+        let interes;
+        switch (cuotas) {
+          case "3":
+            interes = 0.15;
+            break;
+          case "6":
+            interes = 0.25;
+            break;
+          case "12":
+            interes = 0.35;
+            break;
+          default:
+            alert("Número de cuotas no válido. La compra se ha cancelado.");
+            break;
+        }
+        if (interes !== undefined) {
+          const productoElegido = productos[opcionElegida - 1];
+          const precioConInteres = productoElegido.precio * (1 + interes);
+          alert(`El total de la compra en ${cuotas} cuotas es de $${precioConInteres}.`);
+          alert("Gracias por la compra");
+        }
+      } else {
+        alert("Opción de pago no válida. La compra se cancelo.");
+      }
     }
-}else{
-    alert("Muchas gracias!")
-}
-
 
