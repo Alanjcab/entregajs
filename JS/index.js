@@ -6,7 +6,7 @@ const productos =[
     {nombre:" Sillon gamer FX ", color:" Negra ", precio:65500},
     {nombre:" Sillon gamer HX ", color:" Blanca ", precio:70800}
 ]
-alert("Bienvenido a nuestra tienda de sillas para pc. A continuacion le mostramos los productos disponibles para ofrecerles.");
+alert("Bienvenido a nuestra tienda de sillas para pc. A continuacion le mostramos los productos disponibles para ofrecerle.");
 
 productos.forEach(sillon => {
     const mostrarProductos=  `nombre: ${sillon.nombre} color: ${sillon.color} precio: ${sillon.precio}`;
@@ -18,7 +18,7 @@ let opcionElegida;
 let opcionValida = false;
 
 do {
-  opcionElegida = prompt("Si le gustó y quiere comprar uno de nuestros productos, ingrese la opción correspondiente.");
+  opcionElegida = prompt("Si le gustó y quiere comprar uno de nuestros productos, ingrese la opción correspondiente del 1 al 4.");
   switch (opcionElegida) {
     case "1":
       alert("Excelente, usted ingresó la opción número 1: " + productos[0].nombre);
@@ -48,6 +48,7 @@ if (a === "si") {
     let b = prompt("¿Desea abonar en un pago o en cuotas? Ingrese 1 para abonar en un pago. Ingrese 2 para abonar en cuotas.");
     if (b === "1") {
         alert("Eligio abonar en un pago. El total de la compra es $" + productos[opcionElegida - 1].precio);
+        alert("Gracias por la compra.")
       } else if (b === "2") {
         let cuotas = prompt("Ha elegido abonar en cuotas. ¿En cuántas cuotas quiere abonar? 3, 6, 12.");
         let interes;
