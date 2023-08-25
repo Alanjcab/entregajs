@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Roboto&display=swap');
 *{
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: rgb(133, 133, 133);
 }
 
 nav{
@@ -12,20 +16,90 @@ nav{
     justify-content: space-evenly;
     height: 80px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.916);
+    background-color:rgb(14, 14, 14);
 }
 p{
+    color: white;
     font-family: 'Bruno Ace', cursive;
     font-weight: 400;
-    font-size: 70px;
-    height: 90px;
-    width: 60px;
-    text-shadow: 3px 1px 5px rgb(255, 255, 255);
+    font-size: 65px;
 }
 input{
     text-align: center;
     border: solid 1px black;
-    width: 600px;
+    width: 550px;
     height: 35px;
     border-radius: 10px;
+}
+.box-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+.div-container{
+    background-color: rgb(250, 250, 250);
+    width: 700px;
+    height: 480px;
+    border-radius: 10px;
+    box-shadow: 3px 1px 5px rgb(27, 27, 27);
+    display: flex;
+    flex-direction: row;  
+    align-items: center; 
+    gap: 30px;
+}
+.imgSillas{
+    border: 2px solid rgb(174, 174, 174);
+    border-radius: 10px;
+    width:300px;
+    height:350px;
+    margin-left: 25px;
+}
+.div-texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.textoCard{
+    text-align: center;
+    font-size: 25px;
+}
+.precio{
+    font-size: 30px;
+}
+.btn-comprar{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(0, 118, 221);
+    font-size: 15px;
+    text-align: center;
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px 5px;
+}
+.btn-comprar:hover{
+    background-color: rgb(0, 17, 255);
+}
+.btn-agregar{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(97, 97, 97);
+    font-size: 15px;
+    text-align: center;
+    width: 150px;
+    border-radius: 10px;
+    padding:10px 5px;
+}
+.btn-agregar:hover{
+    background-color: rgb(44, 44, 44);
+}
+.carrito{
+    filter: invert(1);
+    width: 30px;
+}
+h3{
+    font-size: 15px;
 }
