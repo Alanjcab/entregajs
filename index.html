@@ -3,15 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEINDA</title>
+    <title>TIENDA</title>
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
     <header>
         <nav>
-            <p>LOGO</p>
-            <input type="text" placeholder="BUSCAR">
-            <a href=""><img src="IMG/icons8-shopping-cart-26.png" alt="logoCarrito" class="carrito"></a>
+            <h1 class="logo">TIENDA</h1>
+            <id class="containerIcon" id="btnCarrito">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="carrito">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                  </svg>
+                  <div class="contProductos">
+                    <span id="contadorProductos">0</span>
+                  </div>
+                  <div class="containerCartProducts" id="mostrarModal" id="modal">
+                    <div class="cartProducts">
+                        <div class="infoCart">
+                            <span class="cantidadProductoCarrito">1</span>
+                            <p class="tituloProductoCarrito">Sillon Negro</p>
+                            <span class="PrecioProductoCarrito">$80.990</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="iconClose">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>                          
+                    </div>
+                    <div class="cartTotal">
+                        <h3>Total:</h3>
+                        <span class="totalPagar">$80.990</span>
+                    </div>
+                  </div>
+            </id>
         </nav>
     </header>
     <main>
@@ -22,8 +44,8 @@
                 <h1 class="textoCard">Sillon Gamer Negro/Blanco</h1>
                 <h2 class="precio">$76.990</h2>
                 <h3>Podes pagar en hasta 3, 6, y 12 cuotas</h3>
-                <a href="" class="btn-comprar">Comprar ahora</a>
-                <a href="" class="btn-agregar">Agregar al carrito</a>
+                <button class="btn-comprar">Comprar ahora</button>
+                <button class="btn-agregar">Agregar al carrito</button>
             </div>
         </div>
         <div class="div-container">
@@ -32,8 +54,8 @@
                 <h1 class="textoCard">Sillon Gamer Negro</h1>
                 <h2 class="precio">$79.990</h2>
                 <h3>Podes pagar en hasta 3, 6, y 12 cuotas</h3>
-                <a href="" class="btn-comprar">Comprar ahora</a>
-                <a href="" class="btn-agregar">Agregar al carrito</a>
+                <button class="btn-comprar">Comprar ahora</button>
+                <button class="btn-agregar">Agregar al carrito</button>
             </div>
         </div>
         <div class="div-container">
@@ -42,8 +64,8 @@
                 <h1 class="textoCard">Sillon Gamer Negro/Azul</h1>
                 <h2 class="precio">$72.990</h2>
                 <h3>Podes pagar en hasta 3, 6, y 12 cuotas</h3>
-                <a href="" class="btn-comprar">Comprar ahora</a>
-                <a href="" class="btn-agregar">Agregar al carrito</a>
+                <button class="btn-comprar">Comprar ahora</button>
+                <button class="btn-agregar">Agregar al carrito</button>
             </div>
         </div>
         <div class="div-container">
@@ -52,8 +74,8 @@
                 <h1 class="textoCard">Sillon Gamer Negro/Rojo</h1>
                 <h2 class="precio">$75.990</h2>
                 <h3>Podes pagar en hasta 3, 6, y 12 cuotas</h3>
-                <a href="" class="btn-comprar">Comprar ahora</a>
-                <a href="" class="btn-agregar">Agregar al carrito</a>
+                <button class="btn-comprar">Comprar ahora</button>
+                <button class="btn-agregar">Agregar al carrito</button>
             </div>
         </div>
     </div>
@@ -61,6 +83,6 @@
     <footer>
 
     </footer>
-    <!--<script src="JS/index.js" async></script>-->
+    <script src="JS/carritoJs.js" async></script>
 </body>
 </html>
