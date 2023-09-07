@@ -4,85 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIENDA</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
     <header>
         <nav>
             <h1 class="logo">TIENDA</h1>
-            <id class="containerIcon" id="btnCarrito">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="carrito">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                  </svg>
-                  <div class="contProductos">
-                    <span id="contadorProductos">0</span>
-                  </div>
-                  <div class="containerCartProducts" id="mostrarModal" id="modal">
-                    <div class="cartProducts">
-                        <div class="infoCart">
-                            <span class="cantidadProductoCarrito">1</span>
-                            <p class="tituloProductoCarrito">Sillon Negro</p>
-                            <span class="PrecioProductoCarrito">$80.990</span>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="iconClose">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                          </svg>                          
-                    </div>
-                    <div class="cartTotal">
-                        <h3>Total:</h3>
-                        <span class="totalPagar">$80.990</span>
-                    </div>
-                  </div>
-            </id>
-        </nav>
+            <img src="./IMG/carrito-de-compras.png" alt="logo"  class="IconoCart" id="verCarrito">
+           
     </header>
     <main>
+        
     <div class="box-div">
-        <div class="div-container">
-            <img src="IMG/silla01.jpg" alt="fotosillapc" class="imgSillas">
-            <div class="div-texto">
-                <h1 class="textoCard">Sillon Gamer Negro/Blanco</h1>
-                <h2 class="precio">$76.990</h2>
-                <h3>Podes pagar en hasta 3, 6, y 12 cuotas</h3>
-                <button class="btn-comprar">Comprar ahora</button>
-                <button class="btn-agregar">Agregar al carrito</button>
-            </div>
-        </div>
-        <div class="div-container">
-            <img src="IMG/silla03.jpg" alt="fotosillapc" class="imgSillas">
-            <div class="div-texto">
-                <h1 class="textoCard">Sillon Gamer Negro</h1>
-                <h2 class="precio">$79.990</h2>
-                <h3>Podes pagar en hasta 3, 6, y 12 cuotas</h3>
-                <button class="btn-comprar">Comprar ahora</button>
-                <button class="btn-agregar">Agregar al carrito</button>
-            </div>
-        </div>
-        <div class="div-container">
-            <img src="IMG/silla04.jpg" alt="fotosillapc" class="imgSillas">
-            <div class="div-texto">
-                <h1 class="textoCard">Sillon Gamer Negro/Azul</h1>
-                <h2 class="precio">$72.990</h2>
-                <h3>Podes pagar en hasta 3, 6, y 12 cuotas</h3>
-                <button class="btn-comprar">Comprar ahora</button>
-                <button class="btn-agregar">Agregar al carrito</button>
-            </div>
-        </div>
-        <div class="div-container">
-            <img src="IMG/silla05.jpg" alt="fotosillapc" class="imgSillas">
-            <div class="div-texto">
-                <h1 class="textoCard">Sillon Gamer Negro/Rojo</h1>
-                <h2 class="precio">$75.990</h2>
-                <h3>Podes pagar en hasta 3, 6, y 12 cuotas</h3>
-                <button class="btn-comprar">Comprar ahora</button>
-                <button class="btn-agregar">Agregar al carrito</button>
-            </div>
-        </div>
+        <div id="divContainer"></div>
     </div>
+    
+    <div class="modalContainer" id="modalContainer"></div>
+    
     </main>
-    <footer>
-
-    </footer>
-    <script src="JS/carritoJs.js" async></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./JS/productos.js"></script>
+    <script src="./JS/carrService.js"></script>
+    <script src="./JS/app.js" async></script> 
 </body>
 </html>
