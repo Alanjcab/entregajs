@@ -2,36 +2,10 @@ const divContainer = document.getElementById("divContainer");
 const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modalContainer");
 
-const productosCarrito = [
-    {
-    precio:82990,
-    id: 1,
-    title: "Sillon Gamer Negro/Blanco",
-    img: "../IMG/silla01.jpg",  
-},
-    {
-    precio:80990,
-    id: 2,
-    title: "Sillon Gamer Negro",
-    img: "../IMG/silla03.jpg",   
-},
-    {
-    precio:76990,
-    id: 3,
-    title: "Sillon Gamer Negro/Azul",
-    img: "../IMG/silla04.jpg",  
-},
-    {
-    precio:75990,
-    id: 4,
-    title: "Sillon Gamer Negro/Rojo",
-    img: "../IMG/silla05.jpg",   
-}
-];
 let carrito =[];
 
 
-    productosCarrito.forEach(producto => {
+ productosCarrito.forEach(producto => {
         const content = document.createElement("div");
         content.className = "divContent";
         content.innerHTML = `
@@ -48,8 +22,26 @@ let carrito =[];
         content.append(comprar);
 
         comprar.addEventListener("click",()=>{
+            const repeat = carrito.some((repeatProducto)=> repeatProducto.id === producto.id);
+
+            if(repeat){
+                carrito.map((prod) =>{
+                    if(prod.id === producto.id){
+                        prod.cantidad++;
+                    }
+               })
+
+               Toastify({
+                text: "Se agrego un nuevo producto!",
+                className: "info",
+                duration: "1000",
+              }).showToast();
+
+
+            }else{
+
             Toastify({
-                text: "Se un nuevo producto!",
+                text: "Se agrego un nuevo producto!",
                 className: "info",
                 duration: "1000",
               }).showToast();
@@ -58,12 +50,16 @@ let carrito =[];
                 id: producto.id,
                 img: producto.img,
                 title: producto.title,
-                precio: producto.precio
+                precio: producto.precio,
+                cantidad: producto.cantidad
             });
+          }
         });
     });
-        
-verCarrito.addEventListener("click", ()=>{
+ 
+    
+const pintarCarrito = () => {
+
     modalContainer.innerHTML ="";
     modalContainer.style.display ="flex";
     const modal =document.createElement("div");
@@ -90,16 +86,35 @@ verCarrito.addEventListener("click", ()=>{
         <img src="${producto.img}">
         <h3 class="textoCard">${producto.title}</h3>
         <p class="precio">$${producto.precio}</p>
+        <p class="cantidad">Cantidad: ${producto.cantidad}</p>
+        <p>Total: ${producto.cantidad * producto.precio}</p>
         `;
         modalContainer.append(modalContent);
+
+        let eliminar = document.createElement("span");
+        eliminar.innerText ="X";
+        eliminar.className ="btnEliminar";
+        modalContent.append(eliminar);
+
+        eliminar.addEventListener("click",eliminarProducto);
+
     });
 
-    const total = carrito.reduce((acc,el) => acc + el.precio, 0);
+    const total = carrito.reduce((acc,el) => acc + el.precio * el.cantidad, 0);
     const totalCompra = document.createElement("div");
     totalCompra.className ="total";
     totalCompra.innerHTML =`
     Total a pagar: $${total}
     `;
     modalContainer.append(totalCompra);
-});
+}
 
+verCarrito.addEventListener("click", pintarCarrito);
+
+const eliminarProducto = () => {
+    const foundId = carrito.find((element)=> element.id);
+    carrito = carrito.filter((carritoId)=>{
+        return carritoId !== foundId;
+    });
+    pintarCarrito();
+}
