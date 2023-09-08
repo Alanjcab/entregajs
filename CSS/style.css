@@ -6,7 +6,8 @@
     font-family: 'Roboto', sans-serif;
 }
 body{
-    background-color: rgb(133, 133, 133);
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5971638655462185) 49%, rgba(33,119,137,0) 100%);
 }
 
 nav{
