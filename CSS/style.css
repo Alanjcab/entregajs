@@ -12,7 +12,7 @@ body{
 nav{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items:center;
     justify-content: space-evenly;
     height: 80px;
     width: 100%;
@@ -74,11 +74,6 @@ nav{
     align-items: center;
     gap: 15px;
 }
-.textoCard{
-    text-align: center;
-    font-size: 22px;
-    margin-top: 15px;
-}
 .precio{
     font-size: 20px;
     font-weight: 700;
@@ -104,8 +99,8 @@ nav{
 
 
 .modalContainer{
-    width: 700px;
-    margin: 0 45%;
+    width: 1000px;
+    margin: 0 20%;
     max-height: 88vh;
     display: flex;
     flex-direction: column;
@@ -138,11 +133,12 @@ nav{
     padding: 5px;
 }
 .contenidoModal{
+    font-size: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    gap: 25px;
     align-items: center;
-    width: 80%;
+    width: 90%;
     margin: 10px;
 }
 .modalContainer > div > img{
@@ -167,7 +163,20 @@ nav{
     font-weight: 900;
     margin-left: 20px;
 }
-
+#contador{
+    background-color: red;
+    color: white;
+    border-radius: 100%;
+    font-size: 12px;
+    top: 30px;
+    padding: 5px;
+    z-index: 1;
+    position: absolute;
+    display: none;
+}
+.cantidad{
+    font-weight: 900;
+}
 /*alert*/
 
 .info{
