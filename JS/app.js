@@ -5,7 +5,12 @@ const contador = document.getElementById("contador")
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
- productosCarrito.forEach(producto => {
+const getData =async () =>{
+    
+    const response = await fetch("../JSON/data.json");
+    const data = await response.json();
+    
+    data.map(producto => {
         const content = document.createElement("div");
         content.className = "divContent";
         content.innerHTML = `
@@ -24,39 +29,37 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         comprar.addEventListener("click",()=>{
             const repeat = carrito.some((repeatProducto)=> repeatProducto.id === producto.id);
 
-            if(repeat){
-                carrito.map((prod) =>{
-                    if(prod.id === producto.id){
-                        prod.cantidad++;
-                    }
-               })
-
-               Toastify({
+            repeat
+            ? (carrito.map((prod) => {
+                if (prod.id === producto.id) {
+                  prod.cantidad++;
+                }
+              }),
+              Toastify({
                 text: "Se agrego un nuevo producto!",
                 className: "info",
                 duration: "1000",
-              }).showToast();
-
-            }else{
-
-            Toastify({
+              }).showToast())
+            : (Toastify({
                 text: "Se agrego un nuevo producto!",
                 className: "info",
                 duration: "1000",
-              }).showToast();
-
-            carrito.push({
+              }).showToast(),
+              carrito.push({
                 id: producto.id,
                 img: producto.img,
                 title: producto.title,
                 precio: producto.precio,
-                cantidad: producto.cantidad
-            });
-          }
+                cantidad: producto.cantidad,
+              }));          
           carritoCon();
           guardarLocal();
         });
     });
+}
+getData();
+
+
  
 const pintarCarrito = () => {
 
@@ -79,7 +82,7 @@ const pintarCarrito = () => {
 
     modal.append(modalbtn);
 
-    carrito.forEach((producto)=>{
+    carrito.map((producto)=>{
         let modalContent = document.createElement("div");
         modalContent.className ="contenidoModal";
         modalContent.innerHTML =`
@@ -131,4 +134,4 @@ carritoCon();
 //localStorege//
 const guardarLocal = ()=>{
     localStorage.setItem("carrito", JSON.stringify(carrito));
-}
+};

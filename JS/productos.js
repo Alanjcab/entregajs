@@ -27,4 +27,8 @@ const productosCarrito = [
     img: "IMG/sillacuatro.png", 
     cantidad: 1,  
 }
-];
+];            
+
+
+
+
