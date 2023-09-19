@@ -6,61 +6,63 @@ const contador = document.getElementById("contador")
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const getData =async () =>{
+    try{
+        const response = await fetch("../JSON/data.json");
+        const data = await response.json(); 
+        
+        data.map(producto => {
+            const content = document.createElement("div");
+            content.className = "divContent";
+            content.innerHTML = `
+            <img src="${producto.img}" class="imgSillas">
+            <h3 class="textoCard">${producto.title}</h3>
+            <p class="precio">$ ${producto.precio}</p>
+            `;
     
-    const response = await fetch("../JSON/data.json");
-    const data = await response.json();
+            divContainer.append(content);
     
-    data.map(producto => {
-        const content = document.createElement("div");
-        content.className = "divContent";
-        content.innerHTML = `
-        <img src="${producto.img}" class="imgSillas">
-        <h3 class="textoCard">${producto.title}</h3>
-        <p class="precio">$ ${producto.precio}</p>
-        `;
-
-        divContainer.append(content);
-
-        let comprar = document.createElement("button");
-        comprar.innerText = "Agregar al carrito";
-        comprar.className = "btnComprar";
-        content.append(comprar);
-
-        comprar.addEventListener("click",()=>{
-            const repeat = carrito.some((repeatProducto)=> repeatProducto.id === producto.id);
-
-            repeat
-            ? (carrito.map((prod) => {
-                if (prod.id === producto.id) {
-                  prod.cantidad++;
-                }
-              }),
-              Toastify({
-                text: "Se agrego un nuevo producto!",
-                className: "info",
-                duration: "1000",
-              }).showToast())
-            : (Toastify({
-                text: "Se agrego un nuevo producto!",
-                className: "info",
-                duration: "1000",
-              }).showToast(),
-              carrito.push({
-                id: producto.id,
-                img: producto.img,
-                title: producto.title,
-                precio: producto.precio,
-                cantidad: producto.cantidad,
-              }));          
-          carritoCon();
-          guardarLocal();
+            let comprar = document.createElement("button");
+            comprar.innerText = "Agregar al carrito";
+            comprar.className = "btnComprar";
+            content.append(comprar);
+    
+            comprar.addEventListener("click",()=>{
+                const repeat = carrito.some((repeatProducto)=> repeatProducto.id === producto.id);
+    
+                repeat
+                ? (carrito.map((prod) => {
+                    if (prod.id === producto.id) {
+                      prod.cantidad++;
+                    }
+                  }),
+                  Toastify({
+                    text: "Se agrego un nuevo producto!",
+                    className: "info",
+                    duration: "1000",
+                  }).showToast())
+                : (Toastify({
+                    text: "Se agrego un nuevo producto!",
+                    className: "info",
+                    duration: "1000",
+                  }).showToast(),
+                  carrito.push({
+                    id: producto.id,
+                    img: producto.img,
+                    title: producto.title,
+                    precio: producto.precio,
+                    cantidad: producto.cantidad,
+                  }));          
+              carritoCon();
+              guardarLocal();
+            });
         });
-    });
-}
+    }catch(error){
+        console.error(error)
+    }
+};
+
 getData();
 
-
- 
 const pintarCarrito = () => {
 
     modalContainer.innerHTML ="";
